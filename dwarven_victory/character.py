@@ -1,59 +1,48 @@
+import random
+import avatars
+
+
 class CreateCharacter:
     def __init__(self):
-        self.type = None
+        self.race = None
         self.name = None
+        self.avatar = None
         self.HP = 1000
         self.MP = 1000
         self.strength = 100
         self.agility = 100
         self.intelligence = 100
-        self.weapon = None
-        self.avatar = None
+        self.weapon_slots = 1
+        self.armor_slots = 2
+        self.weapon = [None]
+        self.armor = [None]
+        self.attack = 100 + self.strength #+ self.weapon[0].attack
+        #self.defence = 100 + self.armor[0]
 
     def __str__(self):
-        return f'Name: {self.name: <30} /n {self.avatar}'
+        return f'{'Name: ':<10}{self.name:>20}\n{'Character race:':<20}{self.race:>10}\n{'HP: ':<10}{self.HP:>20}\n\n{'This is how you look like:':<30}{self.avatar}'
 
-
-    def who_are_you(self):
-        print(self.name)
+    def choose_avatar(self):
+        self.avatar = avatars.AvatarGenerator.generate_dwarf_avatar()
 
     def got_hit(self):
         self.HP = self.HP-100
 
 
 class DwarfCharacter(CreateCharacter):
-    def __init__(self):
+    def __init__(self, name):
         super().__init__()
-        self.type = "Dwarf"
-        self.name = "Ghen"
-        self.HP = self.HP*1
-        self.MP = 10
-        self.strength = 1000
-        self.agility = 10
+        self.race = "Dwarf"
+        self.name = name
+        self.avatar = CreateCharacter.choose_avatar()
+        self.HP = int(self.HP * random.uniform(1, 2))
+        self.MP = int(self.MP * random.uniform(0.1, 0.2))
+        self.strength = int(self.strength * random.uniform(1, 2))
+        self.agility = int(self.strength * random.uniform(0, 0.2))
         self.weapon = "Axe"
 
 
 
-
-class ElvenCharacter(CreateCharacter):
-    def __init__(self):
-        super().__init__()
-        self.name = "Elivarien"
-        self.HP = self.HP*0.1
-        self.MP = 1000
-
-
-dwarf = DwarfCharacter()
-print(dwarf.HP, '\n', dwarf.name)
-dwarf.got_hit()
-print(dwarf.HP, '\n', dwarf.name)
-dwarf.got_hit()
-print(dwarf.HP, '\n', dwarf.name)
-
-elf = ElvenCharacter()
-print(elf.HP, '\n', elf.name)
-elf.got_hit()
-print(elf.HP, '\n', elf.name)
-elf.got_hit()
-print(elf)
+dwarf = DwarfCharacter("Periven")
+print(dwarf)
 

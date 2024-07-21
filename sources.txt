@@ -1,0 +1,8 @@
+timeit
+DRY
+how to create a python package
+package vs module difference
+f'strings
+requirements.txt
+git
+run game from github to virtual machine and run it online

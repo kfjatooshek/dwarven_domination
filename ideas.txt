@@ -1,0 +1,14 @@
+Engineering is:
+•	tests
+•	more tests
+•	even more tests
+•	documentation
+•	design / architecture
+•	reviewing other’s code
+•	readability (not fancy clever things on leetcode)
+•	logging
+•	monitoring and associated stacks
+•	etc
+
+Git is a must (setup a GitHub account, set the main branch to protected, and practice creating your own PRs).
+https://stackoverflow.com/questions/2745076/what-are-the-differences-between-git-commit-and-git-push

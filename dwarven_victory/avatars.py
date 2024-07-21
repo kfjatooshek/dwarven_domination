@@ -42,8 +42,7 @@ class AvatarGenerator:
     /__|__|||__|__\\
 """
 
-    enemy_dragon_avatar = [
-        """
+    enemy_dragon_avatar = """
                                    __====-_  _-====__
                         _--^^^#####//      \\#####^^^--_
                      _-^##########// (    ) \\##########^-_
@@ -67,9 +66,9 @@ class AvatarGenerator:
                           \  /   / /##/   /##\   /\ /
                             \/  / ###|   /###\  /
                               \_/  \_/ \_/ \_/ \_/
-        """]
+        """
 
-    enemy_sauron_avatar = ["""
+    enemy_sauron_avatar = """
               _.-._
            .'\  |  /'.
           /  \ | /    \
@@ -87,7 +86,7 @@ class AvatarGenerator:
         |    | /|  |/ |   |
          \  |/_/    \_|\  /
           `.___  Sauron___.'
-        """]
+        """
 
 
     @classmethod

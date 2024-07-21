@@ -28,6 +28,9 @@ class CreateCharacter:
     def got_hit(self):
         self.HP = self.HP-100
 
+    @classmethod
+    def dwarf_character(cls):
+        cls.HP = 100
 
 class DwarfCharacter(CreateCharacter):
     def __init__(self, name):
@@ -43,6 +46,7 @@ class DwarfCharacter(CreateCharacter):
 
 
 
-dwarf = DwarfCharacter("Periven")
-print(dwarf)
+dwarf = CreateCharacter.dwarf_character()
+print(dwarf.HP)
+
 

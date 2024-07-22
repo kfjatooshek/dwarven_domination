@@ -1,3 +1,11 @@
 Mistakes i see i'm doing:
 - pushing huge, chaotic commits, instead of smaller modifications for each push
 - repeating myself, even though i know the DRY principle
+- havent prepared the project stucture, possible classes and functions -
+    i thought my head is capable enough to imagine all of this, keep it for days
+    and was hoping this is good idea
+- i want to see the effect of the program as fast as possible and I break the
+    DRY rules (copied whole avatar.py logic to items.py)
+- during the coding i come to new ideas on and on, want to implement them, delaying
+    in fact the finishing of base program structure, I need to have a plan and
+    stick to it by all means

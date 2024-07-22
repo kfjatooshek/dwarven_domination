@@ -1,2 +1,5 @@
-decorators - classmethod, staticmethod etc.
-annotations
+Here is the list of things i want to learn:
+- decorators - classmethod, staticmethod etc., still cant use them in practice
+- annotations
+- testing (doctest, pytest)
+- do the documentation

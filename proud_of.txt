@@ -2,3 +2,6 @@ Things i think went quite well:
 - object-oriented programming practice
 - my first python module developed!
 - class inheritance implemented in project
+- f'strings use improved
+- learned a bit bout git and github
+- better understanding of virtual environment

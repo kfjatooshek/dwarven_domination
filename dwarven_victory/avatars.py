@@ -1,5 +1,7 @@
 import random
 import time
+# TODO this whole file should be refactored to a class
+
 
 def time_sleep(sleep_time = 1):
     time.sleep(sleep_time)
@@ -22,7 +24,6 @@ def dwarf_avatars():
        /      \\
       /________\\
 """),
-
         (2, 'Smiling Dwarf', r""""
          ____
        _|____|_
@@ -76,7 +77,6 @@ def enemy_avatars():
                             \/  / ###|   /###\  /
                               \_/  \_/ \_/ \_/ \_/
         """),
-
             (2, 'Evil Sauron', r"""
               _.-._
            .'\  |  /'.
@@ -110,7 +110,6 @@ def pick_avatar(race_avatars):
     print(f'This is how you will look like:{race_avatars()[chosen_avatar][2]}')
     return race_avatars()[chosen_avatar][2]
 
-#pick_avatar(dwarf_avatars)
 
 
 

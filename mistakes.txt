@@ -1,0 +1,3 @@
+Mistakes i see i'm doing:
+- pushing huge, chaotic commits, instead of smaller modifications for each push
+- repeating myself, even though i know the DRY principle

@@ -1,0 +1,4 @@
+Things i think went quite well:
+- object-oriented programming practice
+- my first python module developed!
+- class inheritance implemented in project

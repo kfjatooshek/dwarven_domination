@@ -1,21 +1,20 @@
-def say_hello(name):
-    return f"Hello {name}"
+import pydoc
+import inspect
 
-def be_awesome(name):
-    return f"Yo {name}, together we're the awesomest!"
+def fibonacci(x: 'int', output: 'list' = []) -> 'list':
+    if x == 0:
+        return output
+    else:
+        if len(output) < 2:
+            output.append(1)
+            fibonacci(x-1, output)
+        else:
+            output.append(output[-1] + output[-2])
+            fibonacci(x-1, output)
+        return output
 
-def greet_bob(greeter_func):
-    return greeter_func("Bob")
 
-
-print(greet_bob(be_awesome))
-
-def adder(x):
-    def egger(y):
-        return x+y
-    return egger
-
-x = adder(1)
-x = x(5)
-print(x)
-
+print(fibonacci("a"))
+print(fibonacci.__annotations__)
+#pydoc.help()
+print(inspect.getfullargspec(fibonacci))

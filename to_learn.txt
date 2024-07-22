@@ -1,1 +1,2 @@
 decorators - classmethod, staticmethod etc.
+annotations

@@ -1,5 +1,5 @@
 import random
-import avatars
+from avatars import avatars_design, avatars_logic
 import items
 
 
@@ -53,7 +53,7 @@ class DwarfCharacter(CreateCharacter):
         super().__init__()
         self.race = "dwarf"
         self.name = input("Please enter your character's name:")
-        self.avatar = avatars.pick_avatar(avatars.dwarf_avatars)
+        self.avatar = avatars_logic.pick_avatar(avatars_design.dwarf_avatars)
         self.race_attributes = {'hp_modifier': (1, 2),
                                 'mp_modifier': (0.1, 0.2),
                                 'str_modifier': (1, 2)}
@@ -66,7 +66,3 @@ class ElvenCharacter(CreateCharacter):
     # container for future development of another class
     pass
 
-
-dwarf = DwarfCharacter()
-
-print(dwarf)

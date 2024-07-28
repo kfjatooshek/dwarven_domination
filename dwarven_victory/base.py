@@ -1,11 +1,9 @@
 class GameObject:
-    def __init__(self, name: str, avatar: str, hp: int, strength: int) -> None:
-        self.name = ""
-        self.avatar = ""
-        self.hp = 0
-        self.strength = 0
+    def __init__(self, name: str, avatar: str = None) -> None:
+        self.name = name
+        self.avatar = avatar
 
     def _str__(self):
         return (f'{'Name: ':<30}{self.name:>20}\n'
-                f'{'Strength ':<30}{self.strength:>20}\n'
-                f'{'HP: ':<30}{self.hp:>20}\n')
+                f'{'Avatar ':<30}\n{self.avatar}\n')
+

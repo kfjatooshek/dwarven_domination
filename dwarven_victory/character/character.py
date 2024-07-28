@@ -1,13 +1,13 @@
 import random
-from base import GameObject
+from dwarven_victory.base import GameObject
 from dwarven_victory import avatars
 from dwarven_victory import items
-import items.items_logic as items
+from dwarven_victory.items import items_logic
 
 
 class CreateCharacter(GameObject):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, name: str, avatar: str, hp: int, strength: int) -> None:
+        super().__init__(name, avatar, hp, strength)
         self.race = None
         self.exp = 0
         self.level = 0
@@ -24,25 +24,17 @@ class CreateCharacter(GameObject):
                 f'{'This is how you look like:':<30}{self.avatar}\n\n'
                 f'{'Your weapon:':<30}{self.weapon[2]}\n{self.weapon[0]}')
 
-    @staticmethod
-    def chose_weapon():
-        return items.pick_weapon()
-
     def adjust_character_stats(self):
-        self.hp = int(self.HP * random.uniform(self.race_attributes['hp_modifier'][0],
+        self.hp = int(self.hp * random.uniform(self.race_attributes['hp_modifier'][0],
                                                self.race_attributes['hp_modifier'][1]))
         self.strength = int(self.strength * random.uniform(self.race_attributes['str_modifier'][0],
                                                            self.race_attributes['str_modifier'][1]))
 
-    def got_hit(self):
-        self.hp = self.hp-100
-
 
 class DwarfCharacter(CreateCharacter):
-
-    def __init__(self):
-        super().__init__()
-        self.race = "dwarf"
+    def __init__(self, name: str, avatar: str, hp: int, strength: int) -> None:
+        super().__init__(name, avatar, hp, strength)
+        self.race = race
         self.name = input("Please enter your character's name:")
         self.avatar = avatars_logic.pick_avatar(avatars_design.dwarf_avatars)
         self.race_attributes = {'hp_modifier': (1, 2),

@@ -1,5 +1,7 @@
-dwarf_avatars = [
-        (1, 'Happy Dwarf', r"""
+avatars = {
+    'dwarf': {
+        'Happy Dwarf': {
+            'avatar': r"""
          ____
         /    \\
        / ____ \\
@@ -11,8 +13,10 @@ dwarf_avatars = [
         /____ \\
        /      \\
       /________\\
-"""),
-        (2, 'Smiling Dwarf', r""""
+"""
+        },
+        'Smiling Dwarf': {
+            'avatar': r"""
          ____
        _|____|_
       /  _  _  \\
@@ -24,8 +28,10 @@ dwarf_avatars = [
        /| |  |\\
       / | |  | \\
      /__|_|__|__\\
-"""),
-        (3, 'Regular Dwarf', r""""
+"""
+        },
+        'Regular Dwarf': {
+            'avatar': r"""
          _____
         /     \\
        / () () \\
@@ -36,11 +42,12 @@ dwarf_avatars = [
       /|  |||  |\\
      / |  |||  | \\
     /__|__|||__|__\\
-""")]
-
-
-enemy_avatars = [
-        (1, 'Deadly Dragon', r"""
+"""
+        }
+    },
+    'enemy': {
+        'Deadly Dragon': {
+            'avatar': r"""
                                    __====-_  _-====__
                         _--^^^#####//      \\#####^^^--_
                      _-^##########// (    ) \\##########^-_
@@ -64,8 +71,10 @@ enemy_avatars = [
                           \  /   / /##/   /##\   /\ /
                             \/  / ###|   /###\  /
                               \_/  \_/ \_/ \_/ \_/
-        """),
-        (2, 'Evil Sauron', r"""
+"""
+        },
+        'Evil Sauron': {
+            'avatar': r"""
               _.-._
            .'\  |  /'.
           /  \ | /    \
@@ -83,4 +92,7 @@ enemy_avatars = [
         |    | /|  |/ |   |
          \  |/_/    \_|\  /
           `.___  Sauron___.'
-        """)]
+"""
+        }
+    }
+}

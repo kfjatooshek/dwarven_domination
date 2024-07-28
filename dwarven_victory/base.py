@@ -1,5 +1,5 @@
 class GameObject:
-    def __init__(self, name: str, avatar: str, hp: int) -> None:
+    def __init__(self, name: str, avatar: str, hp: int, strength: int) -> None:
         self.name = ""
         self.avatar = ""
         self.hp = 0

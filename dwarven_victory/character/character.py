@@ -1,52 +1,58 @@
 import random
+import dwarven_victory.character.character_stats_dict as character_stats_dict
 from dwarven_victory.base import GameObject
-from dwarven_victory import avatars
-from dwarven_victory import items
-from dwarven_victory.items import items_logic
 
 
 class CreateCharacter(GameObject):
-    def __init__(self, name: str, avatar: str, hp: int, strength: int) -> None:
-        super().__init__(name, avatar, hp, strength)
-        self.race = None
-        self.exp = 0
-        self.level = 0
+    def __init__(self,
+                 name: str,
+                 avatar: str = "",
+                 hp: int = 100,
+                 strength: int = 100,
+                 exp: int = 0,
+                 level: int = 0,
+                 race: str = None) -> None:
+
+        super().__init__(name, avatar)
+        self.name = name
+        self.avatar = avatar
+        self.hp = hp
+        self.strength = strength
+        self.exp = exp
+        self.level = level
         self.weapon_slots = 1
         self.armor_slots = 2
         self.weapon = None
         self.armor = None
-        self.race_attributes = {}
+        self.race = race
 
+# TODO this str method needs to be aligned with the str of the base.py
     def __str__(self):
-        return (f'{'Race: ':<30}{self.race:>20}\n'
+        return (f'{'Name: ':<30}{self.name:>20}\n'
                 f'{'Experience: ':<30}{self.exp:>20}\n'
                 f'{'Level: ':<30}{self.level:>20}\n'
                 f'{'This is how you look like:':<30}{self.avatar}\n\n'
-                f'{'Your weapon:':<30}{self.weapon[2]}\n{self.weapon[0]}')
+                f'{'Your weapon:':<30}{self.weapon}')
 
     def adjust_character_stats(self):
-        self.hp = int(self.hp * random.uniform(self.race_attributes['hp_modifier'][0],
-                                               self.race_attributes['hp_modifier'][1]))
-        self.strength = int(self.strength * random.uniform(self.race_attributes['str_modifier'][0],
-                                                           self.race_attributes['str_modifier'][1]))
+        race_attr = character_stats_dict.race_attribute().get(self.race)
+        self.hp = int(self.hp * random.uniform(race_attr.get('str_min_multipl'),
+                                               race_attr.get('str_max_multipl')))
+        self.strength = int(self.strength * random.uniform(race_attr.get('hp_min_multipl'),
+                                                           race_attr.get('hp_max_multipl')))
 
 
-class DwarfCharacter(CreateCharacter):
-    def __init__(self, name: str, avatar: str, hp: int, strength: int) -> None:
-        super().__init__(name, avatar, hp, strength)
+class DwarvenCharacter(CreateCharacter):
+    def __init__(self, name: str, avatar: str,  race: str = "dwarf") -> None:
+        super().__init__(name, avatar)
         self.race = race
-        self.name = input("Please enter your character's name:")
-        self.avatar = avatars_logic.pick_avatar(avatars_design.dwarf_avatars)
-        self.race_attributes = {'hp_modifier': (1, 2),
-                                'str_modifier': (1, 2)}
+        self.name = name
+        self.avatar = avatar
         self.adjust_character_stats()
-        self.weapon = items.pick_weapon()
-        self.strength += int(self.weapon[1])
 
 
 class ElvenCharacter(CreateCharacter):
     # container for future development of another class
     pass
 
-x = DwarfCharacter
-print(x)
+

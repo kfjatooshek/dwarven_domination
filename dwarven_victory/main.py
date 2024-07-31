@@ -2,23 +2,28 @@
 from dwarven_victory.character.character import DwarvenCharacter, ElvenCharacter
 from dwarven_victory.avatars import avatars_logic
 from dwarven_victory.character.character_logic import pick_race
+from dwarven_victory.items.items_logic import pick_item
 
 
 def main():
-    players_race = pick_race()
-
+    character_race = pick_race()
     character_name = str(input("Please enter your character's name: "))
-
-    players_avatar = avatars_logic.pick_avatar(players_race)
+    character_avatar = avatars_logic.pick_avatar(character_race)
 
     players_character = None
-    if players_race == "dwarf":
-        players_character = DwarvenCharacter(name=character_name, avatar=players_avatar)
-    if players_race == "elf":
-        players_character = ElvenCharacter(name=character_name, avatar=players_avatar)
+    if character_race == "dwarf":
+        players_character = DwarvenCharacter()
+    if character_race == "elf":
+        players_character = ElvenCharacter()
+
+    players_character.name = character_name
+    players_character.avatar = character_avatar
+
+    players_character.weapon = pick_item('weapon')
+    players_character.armor = pick_item('armor')
+    players_character.adjust_stats_from_items()
 
     print(players_character)
-    print(players_character.strength, players_character.race, players_character.hp)
 
 
 if __name__ == "__main__":

@@ -27,8 +27,10 @@ class CreateCharacter(GameObject):
         return (f"{'Name: ':<30}{self.name:>20}\n"
                 f"{'Experience: ':<30}{self.exp:>20}\n"
                 f"{'Level: ':<30}{self.level:>20}\n"
+                f"{'Strength: ':<30}{self.strength:>20}\n"
+                f"{'HP: ':<30}{self.hp:>20}\n"
                 f"{'This is how you look like:':<30}{self.avatar}\n\n"
-                f"{'Your weapon:':<30}{self.weapon}")
+                f"{'Your weapon:':<30}{self.weapon.avatar}")
 
     def adjust_character_stats(self):
         if self.race_attributes:
@@ -41,6 +43,9 @@ class CreateCharacter(GameObject):
                 self.race_attributes.get('str_max_multipl', 1)
             ))
 
+    def adjust_stats_from_items(self):
+        self.hp += self.weapon.hp + self.armor.hp
+        self.strength += self.weapon.strength + self.armor.strength
 
 class DwarvenCharacter(CreateCharacter):
     def __init__(self) -> None:

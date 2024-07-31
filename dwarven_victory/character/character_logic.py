@@ -25,13 +25,16 @@ class CreateCharacter(GameObject):
 
     def __str__(self):
         return (f"{'Name: ':<30}{self.name:>20}\n"
-                f"{'Experience: ':<30}{self.exp:>20}\n"
-                f"{'Level: ':<30}{self.level:>20}\n"
-                f"{'Strength: ':<30}{self.strength:>20}\n"
-                f"{'HP: ':<30}{self.hp:>20}\n"
                 f"{'This is how you look like:':<30}{self.avatar}\n\n"
                 f"{'Your weapon:':<30}{self.weapon.avatar}\n\n"
                 f"{'Your armor:':<30}{self.armor.avatar}\n")
+
+    def print_stats(self):
+        return (f"{'Name: ':<30}{self.name:>20}\n"
+                f"{'Experience: ':<30}{self.exp:>20}\n"
+                f"{'Level: ':<30}{self.level:>20}\n"
+                f"{'Strength: ':<30}{self.strength:>20}\n"
+                f"{'HP: ':<30}{self.hp:>20}\n")
 
     def adjust_character_stats(self):
         if self.race_attributes:
@@ -74,6 +77,3 @@ class ElvenCharacter(CreateCharacter):
         race = 'elf'
         race_attributes = character_stats_dict.race_attributes.get(race, {})
         super().__init__(race, race_attributes=race_attributes)
-
-
-

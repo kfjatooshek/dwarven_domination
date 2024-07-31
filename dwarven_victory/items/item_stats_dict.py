@@ -1,4 +1,4 @@
-items_avatar_dict = {'weapon': {
+elements = {'weapon': {
     'Heavy Two-handed War hammer': {'strength': 100, 'avatar':  r"""
  _______
 |_______|

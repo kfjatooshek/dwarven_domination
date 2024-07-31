@@ -28,7 +28,7 @@ elements = {'enemy': {
                               \_/  \_/ \_/ \_/ \_/
 """
                       },
-    'Evil Sauron': {'strenght': 500, 'hp': 5000, 'exp': 10000,
+    'Evil Sauron': {'strength': 500, 'hp': 5000, 'exp': 10000,
                     'avatar': r"""
               _.-._
            .'\  |  /'.

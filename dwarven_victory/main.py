@@ -1,5 +1,5 @@
 # main game loop
-from dwarven_victory.character.character_logic import DwarvenCharacter, ElvenCharacter, pick_race
+from dwarven_victory.character.character_logic import DwarvenCharacter, ElvenCharacter, pick_race, choose_action
 from dwarven_victory.avatars import avatars_logic
 from dwarven_victory.items.items_logic import pick_item
 
@@ -23,6 +23,8 @@ def main():
     players_character.adjust_stats_from_items()
 
     print(players_character)
+
+    choose_action(players_character)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,8 @@
 import random
 import dwarven_victory.character.character_stats_dict as character_stats_dict
 from dwarven_victory.base import GameObject
+from dwarven_victory.enemies.enemy_logic import pick_enemy
+from dwarven_victory.fight.fight_logic import fight_enemy
 
 
 class CreateCharacter(GameObject):
@@ -20,8 +22,9 @@ class CreateCharacter(GameObject):
         self.weapon = weapon
         self.armor = armor
         self.obj_type = obj_type
-
         self.adjust_character_stats()
+        self.base_strength = self.strength
+        self.base_hp = self.hp
 
     def __str__(self):
         return (f"{'Name: ':<30}{self.name:>20}\n"
@@ -30,7 +33,7 @@ class CreateCharacter(GameObject):
                 f"{'Your armor:':<30}{self.armor.avatar}\n")
 
     def print_stats(self):
-        return (f"{'Name: ':<30}{self.name:>20}\n"
+        print(f"{'Name: ':<30}{self.name:>20}\n"
                 f"{'Experience: ':<30}{self.exp:>20}\n"
                 f"{'Level: ':<30}{self.level:>20}\n"
                 f"{'Strength: ':<30}{self.strength:>20}\n"
@@ -50,6 +53,8 @@ class CreateCharacter(GameObject):
     def adjust_stats_from_items(self):
         self.hp += self.weapon.hp + self.armor.hp
         self.strength += self.weapon.strength + self.armor.strength
+        self.base_hp = self.hp
+        self.base_strength = self.strength
 
 
 def pick_race():
@@ -63,6 +68,27 @@ def pick_race():
     players_race = available_races_list[players_race_number]
 
     return players_race
+
+
+def choose_action(players_character):
+    possible_actions = {1: 'look at yourself', 2: 'check your stats', 3: 'fight the enemy!', 4: 'quit the game'}
+    while True:
+        print(f'Here are the things you can do in this world:')
+        for i, action in possible_actions.items():
+            print(f'{i:<10}{action:>20}')
+        chosen_action = int(input("What do you want to do? Please enter the corresponding number."))
+        if chosen_action == 1:
+            print(players_character)
+            continue
+        if chosen_action == 2:
+            players_character.print_stats()
+        if chosen_action == 3:
+            fight_enemy(players_character, pick_enemy("enemy"))
+        if chosen_action == 4:
+            print('I hope you had a great time! See you next time!')
+            break
+        else:
+            continue
 
 
 class DwarvenCharacter(CreateCharacter):

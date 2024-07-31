@@ -1,7 +1,6 @@
 # main game loop
-from dwarven_victory.character.character import DwarvenCharacter, ElvenCharacter
+from dwarven_victory.character.character_logic import DwarvenCharacter, ElvenCharacter, pick_race
 from dwarven_victory.avatars import avatars_logic
-from dwarven_victory.character.character_logic import pick_race
 from dwarven_victory.items.items_logic import pick_item
 
 

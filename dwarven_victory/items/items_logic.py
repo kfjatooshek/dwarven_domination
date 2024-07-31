@@ -1,5 +1,5 @@
 from dwarven_victory.items.item_stats_dict import elements
-from dwarven_victory.base import WorldElement, pick_element
+from dwarven_victory.base import pick_element
 
 
 def pick_item(obj_type):

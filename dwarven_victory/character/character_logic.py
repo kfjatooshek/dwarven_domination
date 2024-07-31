@@ -30,8 +30,8 @@ class CreateCharacter(GameObject):
                 f"{'Strength: ':<30}{self.strength:>20}\n"
                 f"{'HP: ':<30}{self.hp:>20}\n"
                 f"{'This is how you look like:':<30}{self.avatar}\n\n"
-                f"{'Your weapon:':<30}{self.weapon.avatar}"
-                f"{'Your armor:':<30}{self.armor.avatar}")
+                f"{'Your weapon:':<30}{self.weapon.avatar}\n\n"
+                f"{'Your armor:':<30}{self.armor.avatar}\n")
 
     def adjust_character_stats(self):
         if self.race_attributes:

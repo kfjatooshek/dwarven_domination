@@ -4,6 +4,7 @@
   / _` \ \ /\ / / _` | '__\ \ / / _ \ '_ \   / _` |/ _ \| '_ ` _ \| | '_ \ / _` | __| |/ _ \| '_ \ 
  | (_| |\ V  V / (_| | |   \ V /  __/ | | | | (_| | (_) | | | | | | | | | | (_| | |_| | (_) | | | |
   \__,_| \_/\_/ \__,_|_|    \_/ \___|_| |_|  \__,_|\___/|_| |_| |_|_|_| |_|\__,_|\__|_|\___/|_| |_|
+
                                                                                                    
 I use this project to learn Python and software engineering, these are this project's main concepts These are the main goals I want to achieve during this project development:      
 - better understand object-oriented programming - build classes, inherit them, etc.

@@ -1,4 +1,4 @@
-import items_design
+from dwarven_victory.items.item_stats_dict import items_avatar_dict as items_design
 import time
 from dwarven_victory.base import GameObject
 
@@ -7,33 +7,43 @@ def sleep(sleep_time=1):
     time.sleep(sleep_time)
 
 
-class Weapon(GameObject):
-    def __init__(self, item_type: str = None, name: str = "Broken Sword"):
-        super().__init__(name=name)
-        self.item_type = item_type
+class Item(GameObject):
+    def __init__(self, obj_type: str = None, hp: int = 0, strength: int = 0, avatar: str = None, name: str = None):
+        super().__init__(obj_type=obj_type, hp=hp, strength=strength, avatar=avatar, name=name)
+        self.item_attributes = dict
 
-    def pick_weapon(self, item_type: str):
-        print(f"Here is the list of available {item_type}s:")
-        items = items_design.items().get(item_type)
-        for index, item in enumerate(items, 1):
-            print(f'{'Number:':<20}{index:<10}\n{'Weapon:':<20}{item['name']:^10}\n{'Strength:':<20}{item['strength']}\n'
-                  f'{item['avatar']}\n\n\n')
-            sleep()
-
-        chosen_weapon = int(input("Please choose your weapon by typing the corresponding number:\n"))-1
-        print(f'You have just drawn the weapon of your choice: {weapons[chosen_weapon]['name']}\n\n'
-              f'{weapons[chosen_weapon]['avatar']}')
-
-        weapon_graphics = weapons[chosen_weapon]['avatar']
-        weapon_str = weapons[chosen_weapon]['strength']
-        weapon_name = weapons[chosen_weapon]['name']
-        return weapon_graphics, weapon_str, weapon_name
-
-    def update_stats(self):
+    def pick_items_avatar(self):
         pass
 
+    def __str__(self):
+        return (f"{'Name: ':<30}{self.name:>20}\n"
+                f"{'Experience: ':<30}{self.hp:>20}\n"
+                f"{'Level: ':<30}{self.strength:>20}\n"
+                f"{f'This is your {self.obj_type}:':<30}{self.avatar}\n\n")
 
-x = Weapon()
-print(x)
+
+def pick_item(obj_type):
+    obj_type_list = items_design.get(obj_type)
+    print(f"Here is the list of available {obj_type}s:")
+
+    for i, (element, avatar) in enumerate(obj_type_list.items(), 1):
+        print(f'{'Number:':<20}{i:^10}\n'
+              f'{'Item name:':<20}{element:^10}\n'
+              f'{'The Avatar: ':<20}\n{avatar['avatar']}\n\n')
+        sleep()
+
+    chosen_item_number = int(input(f"Please choose your {obj_type} by typing the corresponding number:\n"))-1
+    chosen_item_name = list(obj_type_list.keys())[chosen_item_number]
+    chosen_item = obj_type_list.get(chosen_item_name)
+
+    # creating the Item object of chosen type and updating its stats
+    item = Item(obj_type=obj_type, hp=chosen_item.get('hp', 0), strength=chosen_item.get('strength', 0),
+                avatar=chosen_item.get('avatar', r''), name=chosen_item.get('name', r''))
+    print(item)
+    return item
+
+
+pick_item('armor')
+
 
 

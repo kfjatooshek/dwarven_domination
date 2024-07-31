@@ -4,9 +4,9 @@ class GameObject:
         self.avatar = avatar
         self.hp = hp
         self.str = strength
-        self.obj_type = type
+        self.obj_type = obj_type
 
-    def _str__(self):
+    def __str__(self):
         return (f'{'Name: ':<30}{self.name:>20}\n'
                 f'{'Avatar ':<30}\n{self.avatar}\n')
 

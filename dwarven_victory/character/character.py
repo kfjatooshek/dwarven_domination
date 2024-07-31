@@ -44,14 +44,14 @@ class CreateCharacter(GameObject):
 class DwarvenCharacter(CreateCharacter):
     def __init__(self, name: str = None, avatar: str = None) -> None:
         race = 'dwarf'
-        race_attributes = character_stats_dict.race_attribute().get(race, {})
+        race_attributes = character_stats_dict.race_attributes.get(race, {})
         super().__init__(name, avatar, race, race_attributes=race_attributes)
 
 
 class ElvenCharacter(CreateCharacter):
     def __init__(self, name: str = None, avatar: str = None) -> None:
         race = 'elf'
-        race_attributes = character_stats_dict.race_attribute().get(race, {})
+        race_attributes = character_stats_dict.race_attributes.get(race, {})
         super().__init__(name, avatar, race, race_attributes=race_attributes)
 
 

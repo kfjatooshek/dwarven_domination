@@ -5,8 +5,7 @@ from dwarven_victory.base import GameObject
 
 class CreateCharacter(GameObject):
     def __init__(self, race: str,
-                 hp: int = 100, strength: int = 100, exp: int = 0, level: int = 0,
-                 race_attributes: dict = None, weapon_slots: int = 2, armor_slots: int = 2,
+                 hp: int = 100, strength: int = 100, exp: int = 0, level: int = 0, weapon_slots: int = 2, armor_slots: int = 2,
                  weapon: object = None, armor: object = None, obj_type: str = 'character') -> None:
         super().__init__()
         self.race = race
@@ -14,7 +13,8 @@ class CreateCharacter(GameObject):
         self.strength = strength
         self.exp = exp
         self.level = level
-        self.race_attributes = character_stats_dict.race_attributes.get(race, {}) or {}
+        # load race attributes dictionary containing character's statistics adjustments based on chosen race
+        self.race_attributes = character_stats_dict.race_attributes.get(race, {}) or {}  # is this construction ok?
         self.weapon_slots = weapon_slots
         self.armor_slots = armor_slots
         self.weapon = weapon

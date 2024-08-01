@@ -50,8 +50,10 @@ class CreateCharacter(GameObject):
             ))
 
     def adjust_stats_from_items(self):
-        self.hp += self.weapon.hp + self.armor.hp
-        self.strength += self.weapon.strength + self.armor.strength
+        if self.weapon is not None:
+            self.hp += self.weapon.hp + self.armor.hp
+        if self.armor is not None:
+            self.strength += self.weapon.strength + self.armor.strength
         self.base_hp = self.hp
         self.base_strength = self.strength
 

@@ -1,8 +1,6 @@
 import random
-import dwarven_victory.character.character_stats_dict as character_stats_dict
+from dwarven_victory.character import character_stats_dict
 from dwarven_victory.base import GameObject
-from dwarven_victory.enemies.enemy_logic import pick_enemy
-from dwarven_victory.fight.fight_logic import fight_enemy
 
 
 class CreateCharacter(GameObject):
@@ -16,13 +14,13 @@ class CreateCharacter(GameObject):
         self.strength = strength
         self.exp = exp
         self.level = level
-        self.race_attributes = race_attributes or {}
+        self.race_attributes = character_stats_dict.race_attributes.get(race, {}) or {}
         self.weapon_slots = weapon_slots
         self.armor_slots = armor_slots
         self.weapon = weapon
         self.armor = armor
         self.obj_type = obj_type
-        self.adjust_character_stats()
+        self.adjust_character_stats()  # is it allowed to use function while initializing the Class?
         self.base_strength = self.strength
         self.base_hp = self.hp
 
@@ -34,6 +32,7 @@ class CreateCharacter(GameObject):
 
     def print_stats(self):
         print(f"{'Name: ':<30}{self.name:>20}\n"
+                f"{'Race: ':<30}{self.race:>20}\n"
                 f"{'Experience: ':<30}{self.exp:>20}\n"
                 f"{'Level: ':<30}{self.level:>20}\n"
                 f"{'Strength: ':<30}{self.strength:>20}\n"
@@ -69,37 +68,3 @@ def pick_race():
 
     return players_race
 
-
-def choose_action(players_character):
-    possible_actions = {1: 'look at yourself', 2: 'check your stats', 3: 'fight the enemy!', 4: 'quit the game'}
-    while True:
-        print(f'Here are the things you can do in this world:')
-        for i, action in possible_actions.items():
-            print(f'{i:<10}{action:>20}')
-        chosen_action = int(input("What do you want to do? Please enter the corresponding number."))
-        if chosen_action == 1:
-            print(players_character)
-            continue
-        if chosen_action == 2:
-            players_character.print_stats()
-        if chosen_action == 3:
-            fight_enemy(players_character, pick_enemy("enemy"))
-        if chosen_action == 4:
-            print('I hope you had a great time! See you next time!')
-            break
-        else:
-            continue
-
-
-class DwarvenCharacter(CreateCharacter):
-    def __init__(self) -> None:
-        race = 'dwarf'
-        race_attributes = character_stats_dict.race_attributes.get(race, {})
-        super().__init__(race, race_attributes=race_attributes)
-
-
-class ElvenCharacter(CreateCharacter):
-    def __init__(self) -> None:
-        race = 'elf'
-        race_attributes = character_stats_dict.race_attributes.get(race, {})
-        super().__init__(race, race_attributes=race_attributes)

@@ -13,9 +13,9 @@ def pick_avatar(avatar_type):
 
     for i, (element, avatar) in enumerate(avatars_list.items(), 1):
 
-        print(f'{'Number:':<20}{i:^10}\n'
-              f'{'Avatar name:':<20}{element:^10}\n'
-              f'{'The Avatar: ':<20}\n{avatar['avatar']}\n\n')
+        print(f'{"Number:":<20}{i:^10}\n'
+              f'{"Avatar name:":<20}{element:^10}\n'
+              f'{"The Avatar: ":<20}\n{avatar["avatar"]}\n\n')
 
         sleep()
 

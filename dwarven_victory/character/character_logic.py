@@ -1,5 +1,5 @@
 import random
-from dwarven_victory.character import character_stats_dict
+from . import character_stats_dict
 from dwarven_victory.base import GameObject
 
 

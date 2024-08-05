@@ -1,9 +1,9 @@
 # main game loop
-from dwarven_victory.character.character_logic import CreateCharacter, pick_race
-from dwarven_victory.avatars import avatars_logic
-from dwarven_victory.items.items_logic import pick_item
-from dwarven_victory.fight.fight_logic import fight_enemy
-from dwarven_victory.enemies.enemy_logic import pick_enemy
+from character.character_logic import CreateCharacter, pick_race
+from avatars import avatars_logic
+from items.items_logic import pick_item
+from fight.fight_logic import fight_enemy
+from enemies.enemy_logic import pick_enemy
 
 
 def choose_action(players_character):
@@ -13,7 +13,7 @@ def choose_action(players_character):
         print(f'Here are the things you can do in this world:')
         for i, action in possible_actions.items():
             print(f'{i:<10}{action:<40}')
-        chosen_action = int(input("What do you want to do? Please enter the corresponding number."))
+        chosen_action = int(input('What do you want to do? Please enter the corresponding number.'))
         if chosen_action == 1:
             print(players_character)
         if chosen_action == 2:
@@ -46,14 +46,14 @@ def try_again(player):
 
     for i, text in on_defeat.items():
         print(f'{i:<10}{text:<50}')
-    chosen_action = int(input("What do you want to do? Please enter the corresponding number."))
+    chosen_action = int(input('What do you want to do? Please enter the corresponding number.'))
     if chosen_action == 1:
         player.hp = player.base_hp
         player.strength = player.base_strength
     if chosen_action == 2:
         main()
     if chosen_action == 3:
-        print("Good bye, I hope you had fun!")
+        print('Good bye, I hope you had fun!')
         quit()
 
 

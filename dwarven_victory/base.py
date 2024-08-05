@@ -38,7 +38,6 @@ def pick_element(obj_type, dictionary):
               f'{'Name:':<20}{element:<10}\n'
               f'{'HP: ':<20}{avatar.get('hp', 0):<10}\n'
               f'{'Strength: ':<20}{avatar.get('strength', 0):<10}\n'
-              f'{'Exp: ':<20}{avatar.get('exp', 0):<10}\n'
               f'{'The Avatar: ':<20}\n{avatar.get('avatar', 0)}\n\n')
         sleep()
 

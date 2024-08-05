@@ -1,4 +1,4 @@
-from dwarven_victory.items.item_stats_dict import elements
+from item_stats_dict import elements
 from dwarven_victory.base import pick_element
 
 

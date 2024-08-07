@@ -1,5 +1,5 @@
 import time
-from avatars.avatars_design import avatars
+from .avatars_design import avatars
 
 
 def sleep(sleep_time=1):

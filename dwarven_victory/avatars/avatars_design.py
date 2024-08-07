@@ -93,6 +93,8 @@ avatars = {
          \  |/_/    \_|\  /
           `.___  Sauron___.'
 """
-        }
-    }
+        }},
+    'elf': {'Weak Elf': {'avatar': 'No avatar available'}
+            }
 }
+

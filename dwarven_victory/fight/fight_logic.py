@@ -40,12 +40,12 @@ def calculate_exp_to_lvl_up(player, base_exp_required=100):
 # TODO this function might be too long and too complicated actually...
 # to be divided into smaller functions with one responsibility only
 def lvl_up(player):
-    exp_required = calculate_exp_to_lvl_up(player)
     starting_level = player.level
     starting_strength = player.strength
     starting_hp = player.hp
 
     while True:
+        exp_required = calculate_exp_to_lvl_up(player)
         # TODO too much hardcoded stuff here, but i just needed this feature working for deployment
         if player.exp >= exp_required:
             player.level += 1

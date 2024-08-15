@@ -23,18 +23,22 @@ def fight_enemy(player, enemy):
                 lvl_up(player)
                 break
             else:
-                print(f'You got defeated by {enemy.name}')
+                print(f'\nYou got defeated by {enemy.name}')
                 player.hp = 0
                 break
 
-#TODO this function might be too long and too complicated actually... to be divided into smaller functions with one responsibility only
-def lvl_up(player, base_exp_required = 100):
+
+# TODO this function might be too long and too complicated actually...
+# to be divided into smaller functions with one responsibility only
+def lvl_up(player, base_exp_required=100):
     starting_level = player.level
     starting_strength = player.strength
     starting_hp = player.hp
     while True:
         exp_required = 0
-        for i in range(1, player.level+2):  # player.level+2 is answering the question "does character have enough exp for the next level?"
+        # this "for" loop calculates total exp required for the next level
+        # player.level+2 is answering the question "does character have enough exp for the next level?"
+        for i in range(1, player.level+2):
             exp_required += i*base_exp_required
         # TODO too much hardcoded stuff here, but i just needed this feature working for deployment
         if player.exp >= exp_required:

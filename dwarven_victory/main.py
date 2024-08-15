@@ -1,18 +1,18 @@
 # main game loop
-from character.character_logic import CreateCharacter, pick_race
+from character.character_logic import Character, pick_race
 from avatars import avatars_logic
 from items.items_logic import pick_item
 from fight.fight_logic import fight_enemy
 from enemies.enemy_logic import pick_enemy
 
 
-def choose_action(players_character):
+def choose_action(players_character: Character):
     possible_actions = {1: 'look at yourself', 2: 'check your stats', 3: 'fight the enemy!',
                         4: 'create new character', 5: 'quit the game'}
     while True:
         print(f'Here are the things you can do in this world:')
-        for i, action in possible_actions.items():
-            print(f'{i:<10}{action:<40}')
+        for corresponding_number, action in possible_actions.items():
+            print(f'{corresponding_number:<10}{action:<40}')
         chosen_action = int(input('What do you want to do? Please enter the corresponding number.'))
         if chosen_action == 1:
             print(players_character)
@@ -31,7 +31,7 @@ def choose_action(players_character):
             continue
 
 
-def is_alive(player):
+def is_alive(player: Character):
     if player.hp > 0:
         return True
     else:
@@ -39,7 +39,7 @@ def is_alive(player):
         return False
 
 
-def try_again(player):
+def try_again(player: Character):
     on_defeat = {1: "Use the ancient magic to resurrect the current character.",
                  2: "Create another character from scratch.",
                  3: "Quit the game!"}
@@ -58,18 +58,18 @@ def try_again(player):
 
 
 def main():
-    players_character = CreateCharacter(race=pick_race())
+    player_character = Character(race=pick_race())
 
-    players_character.name = str(input("Please enter your character's name: "))
-    players_character.avatar = avatars_logic.pick_avatar(players_character.race)
+    player_character.name = str(input("Please enter your character's name: "))
+    player_character.avatar = avatars_logic.pick_avatar(player_character.race)
 
-    players_character.weapon = pick_item('weapon')
-    players_character.armor = pick_item('armor')
-    players_character.adjust_stats_from_items()
+    player_character.weapon = pick_item('weapon')
+    player_character.armor = pick_item('armor')
+    player_character.adjust_stats_from_items()
 
-    print(players_character)
+    print(player_character)
 
-    choose_action(players_character)
+    choose_action(player_character)
 
 
 if __name__ == "__main__":

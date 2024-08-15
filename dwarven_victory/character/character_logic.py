@@ -3,10 +3,10 @@ from . import character_stats_dict
 from dwarven_victory.base import GameObject
 
 
-class CreateCharacter(GameObject):
-    def __init__(self, race: str,
-                 hp: int = 100, strength: int = 100, exp: int = 0, level: int = 0, weapon_slots: int = 2, armor_slots: int = 2,
-                 weapon: object = None, armor: object = None, obj_type: str = 'character') -> None:
+class Character(GameObject):
+    def __init__(self, race: str, hp: int = 100, strength: int = 100, exp: int = 0, level: int = 0,
+                 weapon_slots: int = 2, armor_slots: int = 2, weapon: object = None, armor: object = None,
+                 obj_type: str = 'character') -> None:
         super().__init__()
         self.race = race
         self.hp = hp
@@ -69,4 +69,3 @@ def pick_race():
     players_race = available_races_list[players_race_number]
 
     return players_race
-

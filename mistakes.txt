@@ -9,3 +9,4 @@ Mistakes i see i'm doing:
 - during the coding i come to new ideas on and on, want to implement them, delaying
     in fact the finishing of base program structure, I need to have a plan and
     stick to it by all means
+- "i will fix the code later" - later means never. Keeping clean code is a matter of future survival

@@ -63,7 +63,7 @@ def print_game_intro():
                   '- Like this one, oh, here?',
                   '<The character whose physique is hidden in the dense fog seems to be talking just about you, '
                   'not hiding the disgust and derision in his voice>',
-                  ' - Well, since you are already here, let''s not waste more time... Every minute brings Sauron closer'
+                  '- Well, since you are already here, let''s not waste more time... Every minute brings Sauron closer '
                   'to the victory',
                   '<the figure groans quietly with resignation>.',
                   'Here is how you story begins...\n\n\n']

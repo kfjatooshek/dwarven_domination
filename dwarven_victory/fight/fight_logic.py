@@ -44,7 +44,9 @@ def lvl_up(player, base_exp_required=100):
         if player.exp >= exp_required:
             player.level += 1
             player.strength += 100
+            player.base_strength = player.strength
             player.hp += 100
+            player.base_hp = player.hp
         else:
             if player.level > starting_level:
                 levels_gained = player.level - starting_level
@@ -52,7 +54,7 @@ def lvl_up(player, base_exp_required=100):
                 hp_gained = player.hp - starting_hp
                 print (f'Congratulations! You have reached level {player.level} [+{levels_gained}]!\n'
                        f'You have gained {strength_gained} strength [{player.strength} total] and '
-                       f'{hp_gained} [{player.hp} total]!\n')
+                       f'{hp_gained} HP [{player.hp} total]!\n')
                 sleep(2)
             break
 

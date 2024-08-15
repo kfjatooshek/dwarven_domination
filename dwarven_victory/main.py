@@ -4,6 +4,7 @@ from avatars import avatars_logic
 from items.items_logic import pick_item
 from fight.fight_logic import fight_enemy
 from enemies.enemy_logic import pick_enemy
+from base import sleep
 
 
 def choose_action(players_character: Character):
@@ -57,7 +58,22 @@ def try_again(player: Character):
         quit()
 
 
+def print_game_intro():
+    text_lines = ['- So is it true? Is it really that bad that we have to reinforce ourselves with such mediocrity....',
+                  '- Like this one, oh, here?',
+                  '<The character whose physique is hidden in the dense fog seems to be talking just about you, '
+                  'not hiding the disgust and derision in his voice>',
+                  ' - Well, since you are already here, let''s not waste more time... Every minute brings Sauron closer'
+                  'to the victory',
+                  '<the figure groans quietly with resignation>.',
+                  'Here is how you story begins...\n\n\n']
+    for line in text_lines:
+        print(line)
+        sleep(5)
+
+
 def main():
+    print_game_intro()
     player_character = Character(race=pick_race())
 
     player_character.name = str(input("Please enter your character's name: "))

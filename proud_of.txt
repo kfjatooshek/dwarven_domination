@@ -5,3 +5,23 @@ Things i think went quite well:
 - f'strings use improved
 - learned a bit bout git and github
 - better understanding of virtual environment
+- separating the software logic from hardcoded stuff is important :)
+
+Clean Code principles applied:
+- Use meaningful and pronounceable variable names
+- Use the same vocabulary for the same type of variable
+- Use searchable names
+- Avoid Mental Mapping
+- Don't add unneeded context
+- Use default arguments instead of short circuiting or conditionals
+- Function names should say what they do
+- Functions should only be one level of abstraction. Functions should do one thing.
+- Avoid side effects .A function produces a side effect if it does anything other than take a value in and return
+    another value or values. For example, a side effect could be writing to a file, modifying some global variable,
+    or accidentally wiring all your money to a stranger.
+- Open/Closed Principle (OCP) - “Incorporate new features by extending the system, not by making modifications (to it)”,
+    Uncle Bob. Objects should be open for extension, but closed to modification. It should be possible to augment
+    the functionality provided by an object (for example, a class) without changing its internal contracts.
+    An object can enable this when it is designed to be extended cleanly.
+
+

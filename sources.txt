@@ -5,4 +5,4 @@ package vs module difference
 f'strings
 requirements.txt
 git
-run game from github to virtual machine and run it online
+https://github.com/zedr/clean-code-python
